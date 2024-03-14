@@ -5,18 +5,84 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/lightbrown">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Admin"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="logout"
-        android:id="@+id/b1"
-        />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TableRow
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:layout_weight="1"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="ADD NEW MATERIAL"
+                android:id="@+id/addnewmmaterial"
+                android:layout_margin="20dp"
+                />
+            <Button
+                android:layout_weight="1"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="DELETE MATERIAL"
+                android:id="@+id/deletematerial"
+                android:layout_margin="20dp"
+                />
+        </TableRow>
+        <TableRow
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <Button
+                android:layout_weight="1"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="UPDATE MATERIAL INFORMATIOM"
+                android:id="@+id/updatematerial"
+                android:layout_margin="20dp"
+                />
+            <Button
+                android:layout_weight="1"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="UPDATE SUPPLIER INFORMATION"
+                android:id="@+id/updatesupplier"
+                android:layout_margin="20dp"
+                />
+        </TableRow>
+        <TableRow
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <Button
+                android:layout_weight="1"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="DELETE SUPPLIER"
+                android:id="@+id/deletesupplier"
+                android:layout_margin="20dp"
+                />
+            <Button
+                android:layout_weight="1"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="logout"
+                android:id="@+id/b1"
+                android:layout_margin="20dp"
+                />
+
+
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

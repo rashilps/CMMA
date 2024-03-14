@@ -1,9 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.CMMA" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.CMMA" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/brown</item>
+        <item name="materialButtonStyle">@style/Widget.AppCompat.Button</item>
     </style>
 
     <style name="Theme.CMMA" parent="Base.Theme.CMMA" />
+    <style name="Button">
+        <item name="android:background">@color/brown</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+
 </resources>
