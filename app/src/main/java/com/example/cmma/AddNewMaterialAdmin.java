@@ -55,7 +55,6 @@ public class AddNewMaterialAdmin extends AppCompatActivity {
                         supplierAddressET.setText("");
                         supplierContactET.setText("");
                         supplierEmailET.setText("");
-//                        Toast.makeText(AddNewMaterialAdmin.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
