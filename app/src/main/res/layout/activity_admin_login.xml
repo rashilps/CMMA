@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/lightbrown">
 
     <TextView
+        style="@style/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Admin Login"
-        android:textColor="@color/black"
         android:textSize="35sp"
         android:id="@+id/login_tv"
         android:layout_marginTop="65dp"
@@ -20,6 +20,7 @@
         />
 
     <EditText
+        style="@style/textView"
         android:id="@+id/user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

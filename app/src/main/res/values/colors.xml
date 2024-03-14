@@ -6,5 +6,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="brown">#795548</color>
     <color name="lightbrown">#BCAAA4</color>
+    <color name="darkbrown">#3E2723</color>
 
 </resources>
