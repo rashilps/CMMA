@@ -10,7 +10,7 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class UserHome extends AppCompatActivity {
     Button b;
     FirebaseAuth mAuth;
     private SharedPreferenceConfig sharedPreferenceConfig;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                Intent i = new Intent(MainActivity.this, Login.class);
+                Intent i = new Intent(UserHome.this, Login.class);
                 startActivity(i);
                 finish();
                 sharedPreferenceConfig.writeLoginStatus(false);

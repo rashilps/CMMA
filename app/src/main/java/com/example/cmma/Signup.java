@@ -79,7 +79,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
 //                                User user = new User(username, pass);
 //                                dr.child("users").push().setValue(user);
 
-                                Intent i = new Intent(Signup.this, MainActivity.class);
+                                Intent i = new Intent(Signup.this, UserHome.class);
                                 startActivity(i);
                             }
                             else {
