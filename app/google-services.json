@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "700055837144",
+    "project_id": "cmma-441c9",
+    "storage_bucket": "cmma-441c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700055837144:android:0f3449e75e0da52b04baad",
+        "android_client_info": {
+          "package_name": "com.example.cmma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPEMogwSMMwDWkEeteGr1OJgiJ6G8IEFQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
