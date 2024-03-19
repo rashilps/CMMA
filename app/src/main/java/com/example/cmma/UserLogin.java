@@ -18,7 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+public class UserLogin extends AppCompatActivity implements View.OnClickListener {
 
     Button login;
     TextView signup,forgot,admin;
@@ -63,7 +63,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view == signup) {
-            Intent i = new Intent(Login.this, Signup.class);
+            Intent i = new Intent(UserLogin.this, UserSignup.class);
             startActivity(i);
         }
 
@@ -84,8 +84,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(Login.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Login.this, UserHome.class));
+                                Toast.makeText(UserLogin.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(UserLogin.this, UserHome.class));
                                 sharedPreferenceConfig.writeLoginStatus(true);
                                 SharedPreferences.Editor editor = getSharedPreferences("name", MODE_PRIVATE).edit();
                                 editor.putString("name", username_entered);
@@ -93,18 +93,18 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //                                Toast.makeText(getApplicationContext(),"" + sharedPreferenceConfig.readLoginStatus(), Toast.LENGTH_SHORT).show();
 
                             } else {
-                                Toast.makeText(Login.this, "Login error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UserLogin.this, "UserLogin error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
                 }
         }
         if (view == forgot){
-            Intent i = new Intent(Login.this, PasswordReset.class);
+            Intent i = new Intent(UserLogin.this, PasswordReset.class);
             startActivity(i);
         }
         if (view == admin){
-            Intent i = new Intent(Login.this, AdminLogin.class);
+            Intent i = new Intent(UserLogin.this, AdminLogin.class);
             startActivity(i);
         }
     }

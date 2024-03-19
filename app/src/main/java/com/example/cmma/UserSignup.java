@@ -18,7 +18,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class Signup extends AppCompatActivity implements View.OnClickListener {
+public class UserSignup extends AppCompatActivity implements View.OnClickListener {
 
     TextView tv;
     EditText user, password, password1;
@@ -74,17 +74,17 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
 
-                                Toast.makeText(Signup.this, "User registered successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UserSignup.this, "User registered successfully", Toast.LENGTH_SHORT).show();
 
 //                                User user = new User(username, pass);
 //                                dr.child("users").push().setValue(user);
 
-                                Intent i = new Intent(Signup.this, UserHome.class);
+                                Intent i = new Intent(UserSignup.this, UserHome.class);
                                 startActivity(i);
                             }
                             else {
-                                Toast.makeText(Signup.this, "Failed", Toast.LENGTH_SHORT).show();
-                                Toast.makeText(Signup.this, "Registration error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UserSignup.this, "Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UserSignup.this, "Registration error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

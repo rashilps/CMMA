@@ -53,7 +53,7 @@ public class AdminLogin extends AppCompatActivity {
         userLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AdminLogin.this, Login.class);
+                Intent i = new Intent(AdminLogin.this, UserLogin.class);
                 startActivity(i);
                 finish();
             }

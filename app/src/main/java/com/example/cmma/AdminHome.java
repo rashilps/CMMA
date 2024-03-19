@@ -31,7 +31,7 @@ public class AdminHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                Intent i = new Intent(AdminHome.this, Login.class);
+                Intent i = new Intent(AdminHome.this, UserLogin.class);
                 startActivity(i);
                 finish();
                 sharedPreferenceConfigAdmin.writeLoginStatusAdmin(false);

@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EdgeEffect;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -35,7 +33,7 @@ public class PasswordReset extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(PasswordReset.this, "Password Sent", Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(PasswordReset.this, Login.class);
+                                    Intent i = new Intent(PasswordReset.this, UserLogin.class);
                                     startActivity(i);
                                 }
                             }

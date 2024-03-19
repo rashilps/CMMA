@@ -27,7 +27,7 @@ public class UserHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                Intent i = new Intent(UserHome.this, Login.class);
+                Intent i = new Intent(UserHome.this, UserLogin.class);
                 startActivity(i);
                 finish();
                 sharedPreferenceConfig.writeLoginStatus(false);

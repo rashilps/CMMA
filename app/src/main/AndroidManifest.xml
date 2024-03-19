@@ -43,7 +43,7 @@
             android:name=".UserHome"
             android:exported="true" />
         <activity
-            android:name=".Login"
+            android:name=".UserLogin"
             android:exported="true"
             android:noHistory="true">
             <intent-filter>
@@ -53,7 +53,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Signup"
+            android:name=".UserSignup"
             android:exported="false" />
     </application>
 
