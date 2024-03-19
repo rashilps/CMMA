@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Spinner
-            android:id="@+id/spin1"
+            android:id="@+id/spinSupplier"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_margin="20dp"
@@ -38,23 +38,17 @@
             />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Spinner
-            android:id="@+id/spin"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_margin="20dp"
-            />
-        <Button
-            style="@style/Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/generateValues"
-            android:text="Generate Values of Material"
-            />
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <Spinner-->
+<!--            android:id="@+id/spin"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_margin="20dp"-->
+<!--            />-->
+
+<!--    </LinearLayout>-->
     <TextView
         style="@style/textView"
         android:id="@+id/suppliername"

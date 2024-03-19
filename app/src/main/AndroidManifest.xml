@@ -16,6 +16,9 @@
         android:theme="@style/Theme.CMMA"
         tools:targetApi="31">
         <activity
+            android:name=".DeleteSupplier"
+            android:exported="false" />
+        <activity
             android:name=".UpdateSupplierAdmin"
             android:exported="false" />
         <activity

@@ -11,7 +11,7 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminHome extends AppCompatActivity {
-    Button signOut,addNewMaterial,deleteMaterial,updateMaterial,addNewSupplier,updateSupplier;
+    Button signOut,addNewMaterial,deleteMaterial,updateMaterial,addNewSupplier,updateSupplier,deleteSupplier;
     FirebaseAuth mAuth;
     private SharedPreferenceConfigAdmin sharedPreferenceConfigAdmin;
     @Override
@@ -24,6 +24,7 @@ public class AdminHome extends AppCompatActivity {
         updateMaterial = findViewById(R.id.updatematerial);
         addNewSupplier = findViewById(R.id.addsupplier);
         updateSupplier = findViewById(R.id.updatesupplier);
+        deleteSupplier = findViewById(R.id.deletesupplier);
         mAuth = FirebaseAuth.getInstance();
         sharedPreferenceConfigAdmin = new SharedPreferenceConfigAdmin(getApplicationContext());
         SharedPreferences s = getSharedPreferences("name", MODE_PRIVATE);
@@ -69,6 +70,13 @@ public class AdminHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AdminHome.this, UpdateSupplierAdmin.class);
+                startActivity(i);
+            }
+        });
+        deleteSupplier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminHome.this, DeleteSupplier.class);
                 startActivity(i);
             }
         });
