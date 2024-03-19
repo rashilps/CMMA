@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="ADD NEW MATERIAL"
         android:textSize="35sp"
-        android:id="@+id/create_acc"
+        android:id="@+id/addNew"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
