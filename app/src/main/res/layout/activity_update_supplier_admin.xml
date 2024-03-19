@@ -12,14 +12,50 @@
         style="@style/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD NEW SUPPLIER"
+        android:text="UPDATE SUPPLIER INFORMATION"
         android:textSize="35sp"
-        android:id="@+id/addNew"
+        android:id="@+id/updateTV"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
+        android:gravity="center"
         />
-    <EditText
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:id="@+id/spin1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            />
+        <Button
+            style="@style/Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/generateValuesSupplier"
+            android:text="Generate Values of supplier"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:id="@+id/spin"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            />
+        <Button
+            style="@style/Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/generateValues"
+            android:text="Generate Values of Material"
+            />
+    </LinearLayout>
+    <TextView
         style="@style/textView"
         android:id="@+id/suppliername"
         android:layout_width="match_parent"
@@ -27,12 +63,15 @@
         android:layout_margin="10dp"
         android:hint="Supplier name"
         android:textSize="22sp" />
-    <Spinner
-        android:id="@+id/spin"
+    <TextView
+        style="@style/textView"
+        android:id="@+id/materialname"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        />
+        android:hint="Material name"
+        android:textSize="22sp" />
+
 
 
     <EditText
@@ -65,8 +104,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Add"
-        android:id="@+id/addButton" />
+        android:text="Update"
+        android:id="@+id/updateButton" />
 
     <TextView
         style="@style/textView"

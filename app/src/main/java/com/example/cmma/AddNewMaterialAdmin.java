@@ -35,6 +35,8 @@ public class AddNewMaterialAdmin extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+
+
 //                Toast.makeText(AddNewMaterialAdmin.this, "Clicked", Toast.LENGTH_SHORT).show();
                 String materialName = materialNameET.getText().toString();
                 String materialDescription = materialDescriptionET.getText().toString();
@@ -43,19 +45,25 @@ public class AddNewMaterialAdmin extends AppCompatActivity {
                 String supplierAddress = supplierAddressET.getText().toString();
                 String supplierContact = supplierContactET.getText().toString();
                 String supplierEmail = supplierEmailET.getText().toString();
-                MaterialPojo mat = new MaterialPojo(materialName,materialDescription,currentQuantity,supplierName,supplierAddress,supplierContact,supplierEmail);
-                dr.child(materialName).setValue(mat).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        materialNameET.setText("");
-                        materialDescriptionET.setText("");
-                        currentQuantityET.setText("");
-                        supplierNameET.setText("");
-                        supplierAddressET.setText("");
-                        supplierContactET.setText("");
-                        supplierEmailET.setText("");
-                    }
-                });
+                MaterialPojo mat = new MaterialPojo(materialName, materialDescription, currentQuantity, supplierName, supplierAddress, supplierContact, supplierEmail);
+                if (!materialDescription.isEmpty() && !currentQuantity.isEmpty() && !supplierName.isEmpty()
+                        && !supplierAddress.isEmpty() && !supplierContact.isEmpty() && !supplierEmail.isEmpty()) {
+                    dr.child(materialName).setValue(mat).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            materialNameET.setText("");
+                            materialDescriptionET.setText("");
+                            currentQuantityET.setText("");
+                            supplierNameET.setText("");
+                            supplierAddressET.setText("");
+                            supplierContactET.setText("");
+                            supplierEmailET.setText("");
+                        }
+                    });
+                }
+                else {
+                    Toast.makeText(AddNewMaterialAdmin.this, "Please select an item from the dropdown", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

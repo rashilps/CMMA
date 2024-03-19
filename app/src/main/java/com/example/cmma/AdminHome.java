@@ -11,17 +11,19 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminHome extends AppCompatActivity {
-    Button signOut,addNewMaterial,deleteMaterial,updateMaterial;
+    Button signOut,addNewMaterial,deleteMaterial,updateMaterial,addNewSupplier,updateSupplier;
     FirebaseAuth mAuth;
     private SharedPreferenceConfigAdmin sharedPreferenceConfigAdmin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
+        setContentView(R.layout.activity_admin_home);
         signOut = findViewById(R.id.b1);
         addNewMaterial = findViewById(R.id.addnewmmaterial);
         deleteMaterial = findViewById(R.id.deletematerial);
         updateMaterial = findViewById(R.id.updatematerial);
+        addNewSupplier = findViewById(R.id.addsupplier);
+        updateSupplier = findViewById(R.id.updatesupplier);
         mAuth = FirebaseAuth.getInstance();
         sharedPreferenceConfigAdmin = new SharedPreferenceConfigAdmin(getApplicationContext());
         SharedPreferences s = getSharedPreferences("name", MODE_PRIVATE);
@@ -53,6 +55,20 @@ public class AdminHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AdminHome.this, UpdateMaterialAdmin.class);
+                startActivity(i);
+            }
+        });
+        addNewSupplier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminHome.this, AddSupplierAdmin.class);
+                startActivity(i);
+            }
+        });
+        updateSupplier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminHome.this, UpdateSupplierAdmin.class);
                 startActivity(i);
             }
         });
