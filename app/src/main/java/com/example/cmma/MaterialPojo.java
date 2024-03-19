@@ -1,6 +1,6 @@
 package com.example.cmma;
 
-public class AddNewMaterialPojo {
+public class MaterialPojo {
 //    private String uid;
     private String materialName;
     private String materialDescription;
@@ -9,9 +9,9 @@ public class AddNewMaterialPojo {
     private String supplierAddress;
     private String supplierContact;
     private String supplierEmail;
-    public AddNewMaterialPojo() {}
+    public MaterialPojo() {}
 
-    public AddNewMaterialPojo(String materialName, String materialDescription, String currentQuantity, String suppluerName, String supplierAddress, String supplierContact,String supplierEmail) {
+    public MaterialPojo(String materialName, String materialDescription, String currentQuantity, String suppluerName, String supplierAddress, String supplierContact, String supplierEmail) {
 //        this.uid = uid;
         this.materialName = materialName;
         this.materialDescription = materialDescription;

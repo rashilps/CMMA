@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,7 +22,7 @@ public class AddNewMaterialAdmin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_material_admin);
-        dr = FirebaseDatabase.getInstance("https://cmma-441c9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("addNewMaterial");
+        dr = FirebaseDatabase.getInstance("https://cmma-441c9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Material");
         materialNameET = findViewById(R.id.materialname);
         materialDescriptionET = findViewById(R.id.materialdescription);
         currentQuantityET = findViewById(R.id.currentquantity);
@@ -36,7 +35,7 @@ public class AddNewMaterialAdmin extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(AddNewMaterialAdmin.this, "Clicked", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(AddNewMaterialAdmin.this, "Clicked", Toast.LENGTH_SHORT).show();
                 String materialName = materialNameET.getText().toString();
                 String materialDescription = materialDescriptionET.getText().toString();
                 String currentQuantity = currentQuantityET.getText().toString();
@@ -44,7 +43,7 @@ public class AddNewMaterialAdmin extends AppCompatActivity {
                 String supplierAddress = supplierAddressET.getText().toString();
                 String supplierContact = supplierContactET.getText().toString();
                 String supplierEmail = supplierEmailET.getText().toString();
-                AddNewMaterialPojo mat = new AddNewMaterialPojo(materialName,materialDescription,currentQuantity,supplierName,supplierAddress,supplierContact,supplierEmail);
+                MaterialPojo mat = new MaterialPojo(materialName,materialDescription,currentQuantity,supplierName,supplierAddress,supplierContact,supplierEmail);
                 dr.child(materialName).setValue(mat).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
