@@ -20,6 +20,12 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center"
         />
+    <View
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/darkbrown"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

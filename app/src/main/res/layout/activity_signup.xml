@@ -15,11 +15,16 @@
         android:text="Create Account"
         android:textSize="40sp"
         android:id="@+id/create_acc"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         />
-
+    <View
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/darkbrown"/>
     <EditText
         style="@style/textView"
         android:id="@+id/user"
