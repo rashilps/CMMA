@@ -20,7 +20,7 @@
                 style="@style/Button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="ADD NEW MATERIAL"
+                android:text="MATERIAL QUANTITY UPDATE"
                 android:id="@+id/addnewmmaterial"
                 android:layout_margin="20dp"
                 />
@@ -29,7 +29,7 @@
                 style="@style/Button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="DELETE \nMATERIAL"
+                android:text="MATERIAL \nINFORMATION"
                 android:id="@+id/deletematerial"
                 android:layout_margin="20dp"
                 />
@@ -43,7 +43,7 @@
                 style="@style/Button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="UPDATE \nMATERIAL INFORMATION"
+                android:text="NOTIFICATION \nSETTINGS"
                 android:id="@+id/updatematerial"
                 android:layout_margin="20dp"
                 />
@@ -52,7 +52,7 @@
                 style="@style/Button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="ADD NEW SUPPLIER"
+                android:text="AUTOMATIC E-MAIL GENERATION"
                 android:id="@+id/addsupplier"
                 android:layout_margin="20dp"
                 />
@@ -67,7 +67,7 @@
                 style="@style/Button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="UPDATE SUPPLIER INFORMATION"
+                android:text="SUPPLIER'S CONTACT INFORMATION"
                 android:id="@+id/updatesupplier"
                 android:layout_margin="20dp"
                 />
@@ -76,24 +76,13 @@
                 style="@style/Button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="DELETE SUPPLIER"
-                android:id="@+id/deletesupplier"
-                android:layout_margin="20dp"
-                />
-
-
-
-        </TableRow>
-        <TableRow>
-            <Button
-                android:layout_weight="1"
-                style="@style/Button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:text="logout"
                 android:id="@+id/b1"
                 android:layout_margin="20dp"
                 />
+
+
+
         </TableRow>
 
     </TableLayout>

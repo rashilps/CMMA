@@ -47,7 +47,7 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
 //        Toast.makeText(this,"" + sharedPreferenceConfig.readLoginStatus(), Toast.LENGTH_SHORT).show();
 
         if (sharedPreferenceConfig.readLoginStatus()) {
-            Intent i = new Intent(this, UserHome.class);
+            Intent i = new Intent(this, UserHomeStart.class);
             startActivity(i);
             finish();
         }
@@ -85,7 +85,7 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(UserLogin.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(UserLogin.this, UserHome.class));
+                                startActivity(new Intent(UserLogin.this, UserHomeStart.class));
                                 sharedPreferenceConfig.writeLoginStatus(true);
                                 SharedPreferences.Editor editor = getSharedPreferences("name", MODE_PRIVATE).edit();
                                 editor.putString("name", username_entered);
