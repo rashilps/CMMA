@@ -15,7 +15,7 @@
             style="@style/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HOME SCREEN"
+            android:text="ADMIN HOME SCREEN"
             android:gravity="center"
             android:textSize="35sp"
             android:id="@+id/updateTV"

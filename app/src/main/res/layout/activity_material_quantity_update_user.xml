@@ -26,80 +26,127 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/darkbrown"/>
+    <TextView
+        android:layout_marginTop="20dp"
+        style="@style/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Material:"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Spinner
+            android:layout_weight="1"
             android:id="@+id/spin"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_margin="20dp"
+
+
             />
         <Button
+            android:layout_weight="1"
             style="@style/Button"
-            android:layout_width="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/generateValues"
             android:text="Generate Values"
+            android:textSize="15sp"
             />
     </LinearLayout>
 
+    <TextView
+        style="@style/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Material name:"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <TextView
         style="@style/textView"
         android:id="@+id/materialname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Material name"
         android:textSize="22sp" />
-    <EditText
+    <TextView
         style="@style/textView"
-        android:id="@+id/materialdescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Material description"
-        android:textSize="22sp" />
-    <EditText
+        android:layout_marginTop="20dp"
+        android:hint="Current quantity:"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+    <TextView
         style="@style/textView"
         android:id="@+id/currentquantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Current quantity"
-        android:textSize="22sp" />
-    <EditText
-        style="@style/textView"
-        android:id="@+id/suppliername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Supplier name"
-        android:textSize="22sp" />
-    <EditText
-        style="@style/textView"
-        android:id="@+id/supplieraddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Supplier address"
         android:textSize="22sp" />
 
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:text="Increase quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+        <RadioButton
+            android:text="Decrease quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+    </RadioGroup>
+<!--    <LinearLayout-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <Button-->
+<!--            android:layout_weight="1"-->
+<!--            style="@style/Button"-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/increase"-->
+<!--            android:text="increase quantity"-->
+<!--            android:textSize="15sp"-->
+<!--            />-->
+<!--        <Button-->
+<!--            android:layout_weight="1"-->
+<!--            style="@style/Button"-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/decrease"-->
+<!--            android:text="decrease quantity"-->
+<!--            android:textSize="15sp"-->
+<!--            android:layout_marginLeft="40dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            />-->
+<!--    </LinearLayout>-->
+    <TextView
+        style="@style/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Update it by:"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
     <EditText
         style="@style/textView"
-        android:id="@+id/suppliercontact"
+        android:id="@+id/updateQuantityAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Supplier contact"
-        android:textSize="22sp" />
-    <EditText
-        style="@style/textView"
-        android:id="@+id/supplieremail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Supplier email    "
+        android:hint="Enter quantity"
         android:textSize="22sp" />
     <Button
         style="@style/Button"
@@ -109,13 +156,5 @@
         android:text="Update"
         android:id="@+id/updateButton" />
 
-    <TextView
-        style="@style/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text=""
-        android:textSize="22sp"
-        android:id="@+id/tv"/>
 
 </LinearLayout>
