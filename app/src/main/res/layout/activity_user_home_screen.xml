@@ -21,7 +21,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="MATERIAL QUANTITY UPDATE"
-                android:id="@+id/addnewmmaterial"
+                android:id="@+id/materialQuantityUpdate"
                 android:layout_margin="20dp"
                 />
             <Button
@@ -30,7 +30,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="MATERIAL \nINFORMATION"
-                android:id="@+id/deletematerial"
+                android:id="@+id/materialInformation"
                 android:layout_margin="20dp"
                 />
         </TableRow>
@@ -44,7 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="NOTIFICATION \nSETTINGS"
-                android:id="@+id/updatematerial"
+                android:id="@+id/notification"
                 android:layout_margin="20dp"
                 />
             <Button
@@ -53,7 +53,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="AUTOMATIC E-MAIL GENERATION"
-                android:id="@+id/addsupplier"
+                android:id="@+id/email"
                 android:layout_margin="20dp"
                 />
         </TableRow>
@@ -68,7 +68,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="SUPPLIER'S CONTACT INFORMATION"
-                android:id="@+id/updatesupplier"
+                android:id="@+id/suppliercontactinfo"
                 android:layout_margin="20dp"
                 />
             <Button
