@@ -55,6 +55,7 @@
             android:id="@+id/generateValues"
             android:text="Generate Values"
             android:textSize="15sp"
+            android:layout_marginRight="20dp"
             />
     </LinearLayout>
 
@@ -137,7 +138,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Update it by:"
+        android:hint="Change it by:"
         android:textSize="20sp"
         android:textStyle="bold"/>
     <EditText

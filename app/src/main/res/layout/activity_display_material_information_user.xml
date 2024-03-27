@@ -48,6 +48,23 @@
         />
     <TextView
         style="@style/textView"
+        android:id="@+id/materialname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Material name"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        style="@style/textView"
+        android:id="@+id/materialname2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="22sp" />
+    <TextView
+        style="@style/textView"
         android:id="@+id/materialdescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,15 +92,17 @@
         android:textStyle="bold"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
+
     <TextView
-        style="@style/textView"
         android:id="@+id/materialquantity2"
+        style="@style/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:textSize="22sp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="22sp" />
+
     <TextView
         style="@style/textView"
         android:id="@+id/suppliername"

@@ -37,7 +37,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
     <Spinner
-        android:id="@+id/spin"
+        android:id="@+id/spinSupplier"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="20dp"

@@ -24,9 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class UpdateSupplierAdmin extends AppCompatActivity {
-//    ArrayList<String> material;
-//    Spinner spinnerMaterial;
-//    ArrayAdapter<String> adapter;
 
     ArrayList<String> supplierList;
     Spinner spinnerSupplier;
@@ -49,29 +46,12 @@ public class UpdateSupplierAdmin extends AppCompatActivity {
         supplierEmailET = findViewById(R.id.supplieremail);
         materialNameTV = findViewById(R.id.materialname);
         updateSupplier = findViewById(R.id.updateButton);
-//        spinnerMaterial = findViewById(R.id.spin);
         spinnerSupplier = findViewById(R.id.spinSupplier);
-
-//        material = new ArrayList<String>();
-//        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, material);
-//        adapter.setDropDownViewResource(R.layout.spinner_item);
-
         supplierList = new ArrayList<String>();
         adapterSupplier = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, supplierList);
         adapterSupplier.setDropDownViewResource(R.layout.spinner_item);
         generateValuesSupplier = findViewById(R.id.generateValuesSupplier);
 
-//        spinnerMaterial.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                materialNameTV.setText(spinnerMaterial.getSelectedItem().toString());
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
 
         generateValuesSupplier.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,15 +62,9 @@ public class UpdateSupplierAdmin extends AppCompatActivity {
 
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                material.clear();
-//                material.add("Select item");
                         for (DataSnapshot ds : snapshot.getChildren()) {
                             SupplierPojo mp = ds.getValue(SupplierPojo.class);
                             String name = mp.getSupplierName();
-////                    System.out.println(name);
-//                            material.add(name);
-//                            spinner.setAdapter(adapter);
-
 
                             if (name.equals(item)) {
                                 String sName = mp.getSupplierName();
@@ -103,7 +77,8 @@ public class UpdateSupplierAdmin extends AppCompatActivity {
                                 supplierAddressET.setText(sAdd);
                                 supplierContactET.setText(sContact);
                                 supplierEmailET.setText(sEmail);
-                            } else {
+                            }
+                            else {
                                 Toast.makeText(UpdateSupplierAdmin.this, "Select item", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -117,24 +92,7 @@ public class UpdateSupplierAdmin extends AppCompatActivity {
             }
         });
 
-//        dr.addValueEventListener(new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                material.clear();
-//                material.add("Select item");
-//                for (DataSnapshot ds : snapshot.getChildren()) {
-//                    MaterialPojo mp = ds.getValue(MaterialPojo.class);
-//                    String name = mp.getMaterialName();
-//                    material.add(name);
-//                    spinnerMaterial.setAdapter(adapter);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//            }
-//        });
+
         drSupplier.addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -159,7 +117,6 @@ public class UpdateSupplierAdmin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                Toast.makeText(UpdateMaterialAdmin.this, "Updated", Toast.LENGTH_SHORT).show();
                 String materialName = materialNameTV.getText().toString();
                 String supplierName = supplierNameTV.getText().toString();
                 String supplierAddress = supplierAddressET.getText().toString();
@@ -170,7 +127,6 @@ public class UpdateSupplierAdmin extends AppCompatActivity {
                     drSupplier.child(supplierName).setValue(mat).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-//                        finish();
                             materialNameTV.setText("");
                             supplierNameTV.setText("");
                             supplierAddressET.setText("");
