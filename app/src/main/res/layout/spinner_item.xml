@@ -7,7 +7,7 @@
     android:textSize="20sp"
     android:gravity="left"
     android:textColor="@color/darkbrown"
-    android:padding="5dip"
+    android:padding="5dp"
     android:background="@color/lightbrown"
     android:text="Select material"
         />

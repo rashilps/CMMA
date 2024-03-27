@@ -53,7 +53,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="MATERIAL \nINFORMATION"
-                android:id="@+id/materialInformation"
+                android:id="@+id/materialInformationButton"
                 android:layout_margin="20dp"
                 />
         </TableRow>
@@ -67,7 +67,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="NOTIFICATION \nSETTINGS"
-                android:id="@+id/notification"
+                android:id="@+id/notificationButton"
                 android:layout_margin="20dp"
                 />
             <Button
@@ -76,7 +76,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="AUTOMATIC E-MAIL GENERATION"
-                android:id="@+id/email"
+                android:id="@+id/emailButton"
                 android:layout_margin="20dp"
                 />
         </TableRow>
@@ -91,7 +91,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="SUPPLIER'S CONTACT INFORMATION"
-                android:id="@+id/suppliercontactinfo"
+                android:id="@+id/suppliercontactinfoButton"
                 android:layout_margin="20dp"
                 />
             <Button

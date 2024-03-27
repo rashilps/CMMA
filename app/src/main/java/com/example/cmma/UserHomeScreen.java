@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class UserHomeScreen extends AppCompatActivity {
-    Button logout, materialQuantityUpdate;
+    Button logout, materialQuantityUpdate,materialInformation,notification,autoEmail,supplierContact;
     FirebaseAuth mAuth;
     private SharedPreferenceConfig sharedPreferenceConfig;
 
@@ -22,7 +22,10 @@ public class UserHomeScreen extends AppCompatActivity {
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
         logout = findViewById(R.id.b1);
         materialQuantityUpdate = findViewById(R.id.materialQuantityUpdate);
-
+        materialInformation = findViewById(R.id.materialInformationButton);
+        notification = findViewById(R.id.notificationButton);
+        autoEmail = findViewById(R.id.emailButton);
+        supplierContact = findViewById(R.id.suppliercontactinfoButton);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,5 +43,33 @@ public class UserHomeScreen extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        materialInformation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(UserHomeScreen.this, DisplayMaterialInformationUser.class);
+                startActivity(i);
+            }
+        });
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(UserHomeScreen.this, NotificationAlertUser.class);
+                startActivity(i);
+            }
+        });
+    autoEmail.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(UserHomeScreen.this, AutomaticEmailGeneration.class);
+            startActivity(i);
+        }
+    });
+    supplierContact.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(UserHomeScreen.this, SupplierContactInformationUser.class);
+            startActivity(i);
+        }
+    });
     }
 }

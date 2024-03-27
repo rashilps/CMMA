@@ -16,6 +16,18 @@
         android:theme="@style/Theme.CMMA"
         tools:targetApi="31">
         <activity
+            android:name=".NotificationAlertUser"
+            android:exported="false" />
+        <activity
+            android:name=".SupplierContactInformationUser"
+            android:exported="false" />
+        <activity
+            android:name=".AutomaticEmailGeneration"
+            android:exported="false" />
+        <activity
+            android:name=".DisplayMaterialInformationUser"
+            android:exported="false" />
+        <activity
             android:name=".MaterialQuantityUpdateUser"
             android:exported="false" />
         <activity
