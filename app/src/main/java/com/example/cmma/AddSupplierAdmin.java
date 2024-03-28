@@ -89,6 +89,7 @@ public class AddSupplierAdmin extends AppCompatActivity {
                             supplierAddressET.setText("");
                             supplierContactET.setText("");
                             supplierEmailET.setText("");
+//                            adapter.clear();
                         }
                     });
                 }

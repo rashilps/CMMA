@@ -1,8 +1,14 @@
 package com.example.cmma;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,9 +30,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MaterialQuantityUpdateUser extends AppCompatActivity {
+    private NotificationUtils mNotificationUtils;
+
     ArrayList<String> material;
     Spinner spinner;
-    DatabaseReference dr;
+    DatabaseReference dr,drNoti;
     Button updateMaterialQuantity,generateValues;
     ArrayAdapter<String> adapter;
     TextView materialNameTV,currentQuantityTV;
@@ -34,11 +42,16 @@ public class MaterialQuantityUpdateUser extends AppCompatActivity {
     private RadioGroup radioGroup;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_material_quantity_update_user);
+        mNotificationUtils = new NotificationUtils(this);
+
         dr = FirebaseDatabase.getInstance("https://cmma-441c9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("/Material");
+        drNoti = FirebaseDatabase.getInstance("https://cmma-441c9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("/Notification");
+
         spinner = findViewById(R.id.spin);
         materialNameTV = findViewById(R.id.materialname);
         radioGroup=findViewById(R.id.radioGroup);
@@ -50,6 +63,11 @@ public class MaterialQuantityUpdateUser extends AppCompatActivity {
         adapter.setDropDownViewResource(R.layout.spinner_item);
         generateValues = findViewById(R.id.generateValues);
         updateMaterialQuantity = findViewById(R.id.updateButton);
+//        Notification.Builder nb = mNotificationUtils.
+//                getAndroidChannelNotification("Quantity reminder", "Please order more ");
+//        mNotificationUtils.getManager().notify(101, nb.build());
+
+
         dr.addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -60,6 +78,7 @@ public class MaterialQuantityUpdateUser extends AppCompatActivity {
                     MaterialPojo mp = ds.getValue(MaterialPojo.class);
 //                    System.out.println(mp);
                     String name = mp.getMaterialName();
+//                    String quantity = mp.getCurrentQuantity();
 //                    System.out.println(name);
                     material.add(name);
                     spinner.setAdapter(adapter);
@@ -78,7 +97,7 @@ public class MaterialQuantityUpdateUser extends AppCompatActivity {
             public void onClick(View v) {
 //                material.clear();
                 String item = spinner.getSelectedItem().toString();
-                System.out.println(item);
+//                System.out.println(item);
 
                 dr.addValueEventListener(new ValueEventListener() {
 
@@ -87,13 +106,39 @@ public class MaterialQuantityUpdateUser extends AppCompatActivity {
                         for (DataSnapshot ds : snapshot.getChildren()) {
                             MaterialPojo mp = ds.getValue(MaterialPojo.class);
                             String name = mp.getMaterialName();
-                            System.out.println(name.equals(item));
+//                            System.out.println(name.equals(item));
                             if (name.equals(item)) {
 //                                System.out.println(item);
                                 String newName = mp.getMaterialName();
                                 String quantity = mp.getCurrentQuantity();
                                 materialNameTV.setText(newName);
                                 currentQuantityTV.setText(quantity);
+                                String newQuantityString = currentQuantityTV.getText().toString();
+//                                System.out.println(newQuantityString+"newQuantity");
+                                int currentQuantityInt = Integer.parseInt(newQuantityString);
+
+                                drNoti.addValueEventListener(new ValueEventListener() {
+                                    @RequiresApi(api = Build.VERSION_CODES.O)
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot ds : snapshot.getChildren()) {
+                                            NotificationPojo mp = ds.getValue(NotificationPojo.class);
+                                            String quantity = mp.getCurrentQuantity();
+                                            int notifyQuantity = Integer.parseInt(quantity);
+                                            String materialName = materialNameTV.getText().toString();
+                                            if (currentQuantityInt<=notifyQuantity){
+                                                Notification.Builder nb = mNotificationUtils.
+                                                        getAndroidChannelNotification("Quantity reminder", "The current quantity of "+ materialName +" is "+currentQuantityInt+". Please order more ASAP");
+                                                mNotificationUtils.getManager().notify(101, nb.build());
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
                             } else {
 //                                Toast.makeText(MaterialQuantityUpdateUser.this, "Select item", Toast.LENGTH_SHORT).show();
                             }
@@ -110,6 +155,7 @@ public class MaterialQuantityUpdateUser extends AppCompatActivity {
         updateMaterialQuantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String newQuantitySendDB = "";
                 String newQuantityString = newQuantityET.getText().toString();
 
                 int newQuantity = 0;
@@ -133,7 +179,7 @@ public class MaterialQuantityUpdateUser extends AppCompatActivity {
                 }
                 if (id == 1) {
                     newQuantity += currentQuantity;
-                    String newQuantitySendDB = String.valueOf(newQuantity);
+                    newQuantitySendDB = String.valueOf(newQuantity);
                     if (!newQuantityString.isEmpty()) {
 
                         dr.child(materialName).child("currentQuantity").setValue(newQuantitySendDB).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -155,7 +201,7 @@ public class MaterialQuantityUpdateUser extends AppCompatActivity {
                 }
                 else if (id==2) {
                     newQuantity = currentQuantity - newQuantity;
-                    String newQuantitySendDB = String.valueOf(newQuantity);
+                    newQuantitySendDB = String.valueOf(newQuantity);
 
                     if (!newQuantityString.isEmpty()) {
                         dr.child(materialName).child("currentQuantity").setValue(newQuantitySendDB).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -178,6 +224,52 @@ public class MaterialQuantityUpdateUser extends AppCompatActivity {
                     Toast.makeText(MaterialQuantityUpdateUser.this, "Select increase or decrease quantity", Toast.LENGTH_SHORT).show();
 
                 }
+                dr.addValueEventListener(new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            MaterialPojo mp = ds.getValue(MaterialPojo.class);
+                            String name = mp.getMaterialName();
+                                String quantity = mp.getCurrentQuantity();
+                                currentQuantityTV.setText(quantity);
+                                String newQuantityString = currentQuantityTV.getText().toString();
+//                                System.out.println(newQuantityString+"newQuantity");
+                                int currentQuantityInt = Integer.parseInt(newQuantityString);
+
+                                drNoti.addValueEventListener(new ValueEventListener() {
+                                    @RequiresApi(api = Build.VERSION_CODES.O)
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot ds : snapshot.getChildren()) {
+                                            NotificationPojo mp = ds.getValue(NotificationPojo.class);
+                                            String quantity = mp.getCurrentQuantity();
+                                            int notifyQuantity = Integer.parseInt(quantity);
+//                                            System.out.println(currentQuantityInt + "current");
+//                                            System.out.println(notifyQuantity + "notify");
+                                            String materialName = materialNameTV.getText().toString();
+                                            if (currentQuantityInt<=notifyQuantity){
+                                                Notification.Builder nb = mNotificationUtils.
+                                                        getAndroidChannelNotification("Quantity reminder", "The current quantity of "+ materialName +" is "+currentQuantityInt+". Please order more ASAP");
+                                                mNotificationUtils.getManager().notify(101, nb.build());
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+
 
             }
         });
