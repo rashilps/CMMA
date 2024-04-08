@@ -1,9 +1,12 @@
 package com.example.cmma;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +25,16 @@ public class AddNewMaterialAdmin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_material_admin);
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setLogo(R.drawable.cmma);
+//        actionBar.setDisplayUseLogoEnabled(true);
+//        actionBar.setDisplayShowHomeEnabled(true);
+
+//        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.cmma));
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        View view = inflater.inflate(R.layout.custom_image_icon,null);
+//        actionBar.setCustomView(view);
         dr = FirebaseDatabase.getInstance("https://cmma-441c9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Material");
         materialNameET = findViewById(R.id.materialname);
         materialDescriptionET = findViewById(R.id.materialdescription);

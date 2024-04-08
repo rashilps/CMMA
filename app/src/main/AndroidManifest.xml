@@ -11,7 +11,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.CMMA"
         tools:targetApi="31">
@@ -60,9 +60,6 @@
         <activity
             android:name=".AdminHome"
             android:exported="false" />
-        <activity
-            android:name=".UserHomeStart"
-            android:exported="true" />
         <activity
             android:name=".UserLogin"
             android:exported="true"
