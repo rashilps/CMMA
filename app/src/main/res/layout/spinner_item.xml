@@ -8,6 +8,6 @@
     android:gravity="left"
     android:textColor="@color/darkbrown"
     android:padding="5dp"
-    android:background="@color/lightbrown"
+    android:background="@color/lightBlue"
     android:text="Select material"
         />
